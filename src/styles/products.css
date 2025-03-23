@@ -1,0 +1,8 @@
+.products-container {
+  width: calc(100% - 224px);
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  height: 100vh;
+  overflow-y: auto;
+}

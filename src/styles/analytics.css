@@ -1,0 +1,9 @@
+.analytics-main-container {
+  width: calc(100% - 224px);
+  padding: 24px;
+  height: calc(100vh - 48px);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

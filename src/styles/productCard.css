@@ -1,0 +1,123 @@
+.product-card {
+  background: linear-gradient(to bottom, #fff, #f0f0f0);
+  padding: 20px;
+  min-width: 320px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-family: "Arial", sans-serif;
+  margin: 20px;
+}
+.barcode-container {
+  display: flex;
+  align-self: flex-start;
+}
+.barcode-container svg {
+  max-width: 320px;
+  min-width: 320px;
+}
+.product-card img {
+  width: 320px;
+  height: 350px;
+  object-fit: cover;
+}
+.product-btn-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+}
+
+.product-card:hover {
+  transform: translateY(-5px); /* Lift effect */
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-name {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.product-category {
+  font-size: 24px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.product-price {
+  color: #e74c3c;
+  font-weight: 600;
+  display: flex;
+  justify-self: center;
+  font-size: 44px;
+  margin: 0;
+}
+
+.product-unit,
+.product-stock,
+.product-exp-date,
+.product-brand {
+  font-size: 16px;
+  color: #777;
+  margin-bottom: 6px;
+}
+
+.product-stock {
+  font-weight: 500;
+}
+
+.product-exp-date {
+  font-size: 16px;
+  color: #f39c12;
+  font-style: italic;
+}
+
+.product-card:hover .product-name {
+  color: #2980b9;
+}
+
+.additem-btn {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  color: #00a575;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  cursor: pointer;
+  border: 1px solid #dbe4e6;
+}
+.deleteitem-btn {
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid;
+  border: none;
+  outline: none;
+  background-color: #fff;
+  color: #c0392b;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18px;
+  cursor: pointer;
+  border: 1px solid #dbe4e6;
+}
+.product-card:hover .product-price {
+  color: #c0392b;
+}
+.card-body-1 {
+  display: flex;
+  justify-content: space-between;
+}

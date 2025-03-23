@@ -1,0 +1,54 @@
+.addproduct-main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: calc(100% - 224px);
+}
+
+.addproduct-form {
+  padding: 40px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 30%;
+  border-radius: 8px;
+}
+.addproduct-default-container {
+  background-color: #fff;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px dashed #bfc8ca;
+}
+.addproduct-default-container p {
+  font-size: 20px;
+}
+
+
+.addproduct-form button {
+  padding: 16px;
+  outline: none;
+  border: none;
+  background-color: #000;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.addproduct-form h1 {
+  display: flex;
+  align-self: center;
+}
+.addproduct-modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

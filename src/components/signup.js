@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import TextField from "@mui/material/TextField";
 import "../styles/signup.css";
 import SignUpImg from "../assets/images/signup.avif";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const Signup = () => {
@@ -74,14 +74,13 @@ const Signup = () => {
       const data = await res.json();
       if (res.status === 200) {
         Cookies.set("token", data?.token);
-
         navigate("/dashboard");
       } else {
-        setError("Sign Up failed. Please try again."); // Set error for sign-up failure
+        setError("Sign Up failed. Please try again.");
       }
     } catch (error) {
       console.log(error);
-      setError("Something went wrong. Please try again."); // Set error in case of fetch failure
+      setError("Something went wrong. Please try again.");
     }
   };
 
@@ -93,63 +92,63 @@ const Signup = () => {
   return (
     <div className='sign-up-container'>
       <div className='sign-up-left-container'>
-        <form onSubmit={handleSubmit}>
-          <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Sign Up</h1>
-          <TextField
-            required
-            id='outlined-username'
-            label='Username'
-            name='username'
-            value={formData.username}
-            onChange={handleChange}
-            error={!!errors.username}
-            helperText={errors.username}
-            variant='outlined'
-          />
-          <TextField
-            required
-            id='outlined-email'
-            label='Email'
-            name='email'
-            value={formData.email}
-            onChange={handleChange}
-            error={!!errors.email}
-            helperText={errors.email}
-            variant='outlined'
-          />
-          <TextField
-            required
-            id='outlined-mobile'
-            label='Mobile'
-            name='number'
-            value={formData.number}
-            onChange={handleChange}
-            error={!!errors.number}
-            helperText={errors.number}
-            type='number'
-            variant='outlined'
-          />
-          <TextField
-            required
-            id='outlined-password'
-            label='Password'
-            name='password'
-            type='password'
-            value={formData.password}
-            onChange={handleChange}
-            error={!!errors.password}
-            helperText={errors.password}
-            variant='outlined'
-          />
-          <button type='submit' className='submit-btn'>
-            Sign Up
-          </button>
-          {error && <p className='error-message'>{error}</p>}{" "}
-          {/* Display general error */}
-          <span>
-            Already have an account? <a href='/signin'>Sign In</a>
-          </span>
-        </form>
+        <div className='sign-up-left-container-padding'>
+          <form onSubmit={handleSubmit}>
+            <h1>Sign Up</h1>
+            <TextField
+              required
+              label='Username'
+              name='username'
+              value={formData.username}
+              onChange={handleChange}
+              error={!!errors.username}
+              helperText={errors.username}
+              variant='outlined'
+            />
+            <TextField
+              required
+              label='Email'
+              name='email'
+              value={formData.email}
+              onChange={handleChange}
+              error={!!errors.email}
+              helperText={errors.email}
+              variant='outlined'
+            />
+            <TextField
+              required
+              label='Mobile'
+              name='number'
+              value={formData.number}
+              onChange={handleChange}
+              error={!!errors.number}
+              helperText={errors.number}
+              type='number'
+              variant='outlined'
+            />
+            <TextField
+              required
+              label='Password'
+              name='password'
+              type='password'
+              value={formData.password}
+              onChange={handleChange}
+              error={!!errors.password}
+              helperText={errors.password}
+              variant='outlined'
+            />
+            <button type='submit' className='submit-btn'>
+              Sign Up
+            </button>
+            {error && <p className='error-message'>{error}</p>}
+            <span>
+              Already have an account?{" "}
+              <Link to='/signin' className='sign-up-text'>
+                Sign In
+              </Link>
+            </span>
+          </form>
+        </div>
       </div>
       <div className='sign-up-right-container'>
         <img src={SignUpImg} alt='Sign Up' />

@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import "../styles/signin.css";
 import SignInImage from "../assets/images/signin.avif";
 import Cookies from "js-cookie";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signin = () => {
   const navigate = useNavigate();
@@ -131,7 +131,7 @@ const Signin = () => {
               !email || !password || !!errors.email || !!errors.password
             }
             style={{
-              backgroundColor: "#007bff",
+              backgroundColor: "#00a575",
               color: "white",
               border: "none",
               padding: "10px 20px",
@@ -151,7 +151,10 @@ const Signin = () => {
             <span className=''>{errorIndication}</span>
           )}
           <span>
-            Don't have an account <a href='/signup'>Sign Up</a>
+            Don't have an account{" "}
+            <Link to='/signup' className='sign-up-text'>
+              Sign In
+            </Link>
           </span>
         </form>
       </div>

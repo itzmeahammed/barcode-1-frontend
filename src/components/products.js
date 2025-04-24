@@ -10,7 +10,6 @@ const Products = () => {
   const [isUpdated, setisUpdated] = useState(false);
   const [isLoading, setisLoading] = useState(false);
 
-
   const getProductData = async () => {
     setisLoading(true);
     try {
@@ -38,9 +37,11 @@ const Products = () => {
     <>
       {isLoading && <Loader open={true} />}
       <div className='products-container'>
-        {productData?.map((val, key) => (
-          <ProductCard data={val} setisUpdated={setisUpdated} />
-        ))}
+        {productData?.length > 0
+          ? productData?.map((val, key) => (
+              <ProductCard data={val} setisUpdated={setisUpdated} />
+            ))
+          : "No Data Available"}
       </div>
     </>
   );

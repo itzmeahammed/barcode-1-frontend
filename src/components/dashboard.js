@@ -7,6 +7,7 @@ import Analytics from "./analytics";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import InvoiceHIstory from "./invoiceHIstory";
+import AttendanceCard from "./attendenceCard";
 
 const Dashboard = () => {
   const [currentName, setcurrentName] = useState("products");
@@ -30,6 +31,8 @@ const Dashboard = () => {
         <AddProduct open={open} setopen={setopen} />
       ) : currentName == "analytics" ? (
         <Analytics />
+      ) : currentName == "markattendence" ? (
+        <AttendanceCard />
       ) : (
         <InvoiceHIstory />
       )}

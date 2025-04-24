@@ -12,6 +12,7 @@ const Signup = () => {
     email: "",
     number: "",
     password: "",
+    role: "", // Added role
   });
 
   const [errors, setErrors] = useState({
@@ -19,9 +20,10 @@ const Signup = () => {
     email: "",
     number: "",
     password: "",
+    role: "", // Added role error
   });
 
-  const [error, setError] = useState(""); // Added to manage general error messages
+  const [error, setError] = useState(""); // General error
 
   const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   const numberRegex = /^[0-9]{10}$/;
@@ -48,6 +50,7 @@ const Signup = () => {
       newErrors.number = "Please enter a valid 10-digit mobile number";
     }
     if (!formData.password) newErrors.password = "Password is required";
+    if (!formData.role) newErrors.role = "Role is required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -55,7 +58,6 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     if (validateForm()) {
       signUp();
     }
@@ -137,6 +139,23 @@ const Signup = () => {
               helperText={errors.password}
               variant='outlined'
             />
+
+            {/* Role Dropdown */}
+            <div className='form-field'>
+              <select
+                name='role'
+                value={formData.role}
+                onChange={handleChange}
+                className={`role-dropdown ${errors.role ? "input-error" : ""}`}
+              >
+                <option value=''>Select Role</option>
+                <option value='employee'>Staff</option>
+                <option value='manager'>Manager</option>
+                <option value='admin'>Admin</option>
+              </select>
+              {errors.role && <p className='error-message'>{errors.role}</p>}
+            </div>
+
             <button type='submit' className='submit-btn'>
               Sign Up
             </button>

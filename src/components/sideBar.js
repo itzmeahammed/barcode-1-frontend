@@ -50,6 +50,14 @@ const SideBar = ({ setcurrentName, setopen, currentName }) => {
           >
             Invoice History
           </button>
+          <button
+            onClick={() => setcurrentName("markattendence")}
+            className={`${
+              currentName == "markattendence" && "selected-option"
+            }`}
+          >
+            Mark Attendence
+          </button>
         </div>
         <div className='sidebar-container-footer'>
           <button

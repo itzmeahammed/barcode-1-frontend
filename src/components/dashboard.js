@@ -8,6 +8,8 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import InvoiceHIstory from "./invoiceHIstory";
 import AttendanceCard from "./attendenceCard";
+import ShowTasksStaffs from "./showTasksStaffs";
+import Staffs from "./staffs";
 
 const Dashboard = () => {
   const [currentName, setcurrentName] = useState("products");
@@ -33,6 +35,10 @@ const Dashboard = () => {
         <Analytics />
       ) : currentName == "markattendence" ? (
         <AttendanceCard />
+      ) : currentName == "stafftasks" ? (
+        <ShowTasksStaffs />
+      ) : currentName == "staffs" ? (
+        <Staffs />
       ) : (
         <InvoiceHIstory />
       )}

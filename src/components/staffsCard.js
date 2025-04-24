@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/staffsCard.css";
 import Cookies from "js-cookie";
 
-const StaffsCard = ({ data }) => {
+const categories = [
+  "Shoes",
+  "Milk",
+  "Electronics",
+  "Groceries",
+  "Clothing",
+  "Furniture",
+  "Toys",
+  "Books",
+  "Beverages",
+  "Cosmetics",
+];
+
+const StaffsCard = ({ data, userData }) => {
   const token = Cookies.get("token");
-  const handleAssign = async () => {
+  const [showModal, setShowModal] = useState(false);
+  const [selectedTask, setSelectedTask] = useState("");
+
+  const handleAssignClick = () => {
+    setShowModal(true);
+  };
+
+  const handleSubmit = async () => {
+    if (!selectedTask) {
+      alert("Please select a task category.");
+      return;
+    }
+
     try {
       const res = await fetch("http://localhost:6778/api/task/createTask", {
         method: "POST",
@@ -13,16 +38,17 @@ const StaffsCard = ({ data }) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          manager: "id",
-          employee: "id",
-          task: "work",
+          manager: userData?.id,
+          employee: data?.id,
+          task: selectedTask,
           status: "assigned",
         }),
       });
 
       const result = await res.json();
       if (res.ok) {
-        alert("Staff assigned successfully!");
+        alert("The Task is assigned to this Staff  successfully!");
+        setShowModal(false);
       } else {
         alert(result?.message || "Failed to assign staff.");
       }
@@ -33,19 +59,56 @@ const StaffsCard = ({ data }) => {
   };
 
   return (
-    <div className='staff-card'>
-      <div className='card-body-1'>
-        <p className='product-name'>{data?.username}</p>
-        <p className='product-category'>{data?.role}</p>
-        <p className='product-category'>{data?.email}</p>
-        <p className='product-category'>{data?.number}</p>
+    <>
+      <div className='staff-card'>
+        <div className='card-body-1 d-flex-col gap-8'>
+          <p className='product-category'>
+            <strong>Name:</strong>&nbsp;
+            {data?.username}
+          </p>
+          <p className='product-category'>
+            <strong>Role:</strong>&nbsp;
+            {data?.role}
+          </p>
+          <p className='product-category'>
+            <strong>Email:</strong>&nbsp;
+            {data?.email}
+          </p>
+          <p className='product-category'>
+            <strong>Mobile no:</strong>&nbsp;
+            {data?.number}
+          </p>
+        </div>
+        <div className='staff-btn-container'>
+          <button className='assign-btn' onClick={handleAssignClick}>
+            Assign
+          </button>
+        </div>
       </div>
-      <div className='staff-btn-container'>
-        <button className='assign-btn' onClick={handleAssign}>
-          Assign
-        </button>
-      </div>
-    </div>
+
+      {showModal && (
+        <div className='staff-modal '>
+          <div className='staff-modal-content '>
+            <h3>Select Task Category</h3>
+            <select
+              value={selectedTask}
+              onChange={(e) => setSelectedTask(e.target.value)}
+            >
+              <option value=''>-- Select Category --</option>
+              {categories.map((cat, index) => (
+                <option key={index} value={cat}>
+                  {cat}
+                </option>
+              ))}
+            </select>
+            <div className='staff-modal-buttons'>
+              <button onClick={handleSubmit}>Submit</button>
+              <button onClick={() => setShowModal(false)}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

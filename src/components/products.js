@@ -37,11 +37,13 @@ const Products = () => {
     <>
       {isLoading && <Loader open={true} />}
       <div className='products-container'>
-        {productData?.length > 0
-          ? productData?.map((val, key) => (
-              <ProductCard data={val} setisUpdated={setisUpdated} />
-            ))
-          : "No Data Available"}
+        {productData?.length > 0 ? (
+          productData?.map((val, key) => (
+            <ProductCard data={val} setisUpdated={setisUpdated} />
+          ))
+        ) : (
+          <p className='d-flex-full'>No Data Available</p>
+        )}
       </div>
     </>
   );

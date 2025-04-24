@@ -6,6 +6,7 @@ import logo from "../assets/svg/barcode.svg";
 
 const SideBar = ({ setcurrentName, setopen, currentName }) => {
   const navigate = useNavigate();
+  const role = Cookies.get("role");
 
   return (
     <div className='sidebar-container'>
@@ -50,14 +51,36 @@ const SideBar = ({ setcurrentName, setopen, currentName }) => {
           >
             Invoice History
           </button>
-          <button
-            onClick={() => setcurrentName("markattendence")}
-            className={`${
-              currentName == "markattendence" && "selected-option"
-            }`}
-          >
-            Mark Attendence
-          </button>
+
+          {role == "manager" && (
+            <button
+              onClick={() => setcurrentName("staffs")}
+              className={`${currentName == "staffs" && "selected-option"}`}
+            >
+              Staffs List
+            </button>
+          )}
+          {role == "employee" && (
+            <>
+              <button
+                onClick={() => setcurrentName("markattendence")}
+                className={`${
+                  currentName == "markattendence" && "selected-option"
+                }`}
+              >
+                Mark Attendence
+              </button>
+
+              <button
+                onClick={() => setcurrentName("stafftasks")}
+                className={`${
+                  currentName == "stafftasks" && "selected-option"
+                }`}
+              >
+                My Tasks
+              </button>
+            </>
+          )}
         </div>
         <div className='sidebar-container-footer'>
           <button

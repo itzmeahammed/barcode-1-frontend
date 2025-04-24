@@ -66,7 +66,7 @@ const Signin = () => {
       const data = await res.json();
       if (data?.token) {
         Cookies.set("token", data?.token);
-
+        Cookies.set("role", data?.role);
         navigate("/dashboard");
       } else {
         seterrorIndication(data?.error);

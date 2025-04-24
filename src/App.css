@@ -9,3 +9,35 @@
   background-color: #f4f6f9;
   border-radius: 15px;
 }
+
+.d-flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.d-flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.d-flex-full {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.d-flex-al {
+  display: flex;
+  align-items: center;
+}
+.gap-8 {
+  gap: 8px;
+}
+
+.gap-16 {
+  gap: 16px;
+}
+
+.w-100 {
+  width: 100%;
+}

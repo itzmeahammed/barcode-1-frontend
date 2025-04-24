@@ -15,12 +15,12 @@ const ProductCard = ({ data, setisUpdated }) => {
   const [invoiceOpen, setinvoiceOpen] = useState(false);
   const [addItemData, setaddItemData] = useState(data);
 
-  // http://localhost:5000/api/product/deleteProduct?id=
+  // http://localhost:6778/api/product/deleteProduct?id=
 
   const deleteProduct = async () => {
     try {
       await fetch(
-        `http://localhost:5000/api/product/deleteProduct?id=${data?.id}`,
+        `http://localhost:6778/api/product/deleteProduct?id=${data?.id}`,
         {
           method: "DELETE",
           headers: {

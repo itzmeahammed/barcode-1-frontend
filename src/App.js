@@ -9,6 +9,7 @@ import Analytics from "./components/analytics";
 import InvoiceHIstory from "./components/invoiceHIstory";
 import Staffs from "./components/staffs";
 import AttendanceCard from "./components/attendenceCard";
+import ShowTasksStaffs from "./components/showTasksStaffs";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/invoice' element={<InvoiceHIstory />} />
         <Route path='/staffs' element={<Staffs />} />
         <Route path='/markattendence' element={<AttendanceCard />} />
+        <Route path='/stafftasks' element={<ShowTasksStaffs />} />
       </Routes>
     </>
   );

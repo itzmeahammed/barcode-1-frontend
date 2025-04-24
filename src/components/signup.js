@@ -76,6 +76,7 @@ const Signup = () => {
       const data = await res.json();
       if (res.status === 200) {
         Cookies.set("token", data?.token);
+        Cookies.set("role", data?.role);
         navigate("/dashboard");
       } else {
         setError("Sign Up failed. Please try again.");

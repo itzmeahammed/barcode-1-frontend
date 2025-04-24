@@ -15,6 +15,10 @@
   width: 30%;
   border-radius: 8px;
 }
+
+.addproduct-form h3 {
+  margin: 10px;
+}
 .addproduct-default-container {
   background-color: #fff;
   width: 250px;
@@ -32,7 +36,6 @@
   font-size: 20px;
 }
 
-
 .addproduct-form button {
   padding: 16px;
   outline: none;
@@ -46,6 +49,7 @@
 .addproduct-form h1 {
   display: flex;
   align-self: center;
+  margin: 0;
 }
 .addproduct-modal-container {
   display: flex;

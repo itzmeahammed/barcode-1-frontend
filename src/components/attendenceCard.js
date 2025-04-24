@@ -22,18 +22,32 @@ const AttendanceCard = () => {
 
   const token = Cookies.get("token");
 
-  useEffect(() => {
-    const userData = Cookies.get("user");
-    if (userData) {
-      setUserId(userData);
+  const [userData, setuserData] = useState([]);
+  const getuserData = async () => {
+    try {
+      const res = await fetch(`http://localhost:6778//api/user/getUser`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      });
+      const data = await res.json();
+      setuserData(data);
+    } catch (error) {
+      console.log(error);
     }
+  };
+
+  useEffect(() => {
+    getuserData();
   }, []);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const markAttendance = async () => {
-    if (!userId) {
+    if (!userData?.id) {
       alert("User ID not found.");
       return;
     }
@@ -47,7 +61,7 @@ const AttendanceCard = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          id: userId,
+          id: userData?.id,
           date: today,
           status: "present",
           role: "employee",
@@ -60,6 +74,7 @@ const AttendanceCard = () => {
         setOpen(false);
       } else {
         alert(data?.message || "Failed to mark attendance.");
+        setOpen(false);
       }
     } catch (error) {
       console.error(error);

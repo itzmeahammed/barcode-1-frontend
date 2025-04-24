@@ -95,7 +95,7 @@ const Signup = () => {
   return (
     <div className='sign-up-container'>
       <div className='sign-up-left-container'>
-        <div className='sign-up-left-container-padding'>
+        <div className='sign-up-left-container-padding d-flex-jsc'>
           <form onSubmit={handleSubmit}>
             <h1>Sign Up</h1>
             <TextField

@@ -51,6 +51,9 @@
   gap: 20px;
   width: 100%;
   max-width: 400px;
+  overflow-y: auto;
+  height: 80vh;
+  padding-right: 10px;
 }
 
 .sign-up-left-container h1 {

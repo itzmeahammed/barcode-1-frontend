@@ -25,6 +25,10 @@
   justify-content: center;
   width: 100%;
 }
+.d-flex-jsc {
+  display: flex;
+  justify-content: center;
+}
 
 .d-flex-al {
   display: flex;

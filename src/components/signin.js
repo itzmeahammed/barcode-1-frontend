@@ -153,7 +153,7 @@ const Signin = () => {
           <span>
             Don't have an account{" "}
             <Link to='/signup' className='sign-up-text'>
-              Sign In
+              Sign up
             </Link>
           </span>
         </form>

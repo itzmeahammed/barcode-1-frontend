@@ -16,6 +16,14 @@ const Dashboard = () => {
   const [open, setopen] = useState(false);
   const navigate = useNavigate();
 
+  const role = Cookies.get("role");
+  useEffect(() => {
+    if (role == "employee") {
+      setcurrentName("stafftasks");
+    } else if (role == "manager") {
+      setcurrentName("staffs");
+    }
+  }, []);
   useEffect(() => {
     const token = Cookies.get("token");
     if (!token) navigate("/signin");

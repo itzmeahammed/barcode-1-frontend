@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../styles/staffsCard.css";
 import Cookies from "js-cookie";
+import { ToastContainer, toast } from "react-toastify";
 
 const categories = [
   "Shoes",
@@ -47,10 +48,19 @@ const StaffsCard = ({ data, userData }) => {
 
       const result = await res.json();
       if (res.ok) {
-        alert("The Task is assigned to this Staff  successfully!");
+        const notify = () =>
+          toast.success("The Task is assigned to this Staff  successfully!");
+
+        notify();
+        // alert("The Task is assigned to this Staff  successfully!");
+
         setShowModal(false);
       } else {
-        alert(result?.message || "Failed to assign staff.");
+        const notify = () =>
+          toast.error(result?.message || "Failed to assign staff.");
+
+        notify();
+        // alert(result?.message || "Failed to assign staff.");
       }
     } catch (error) {
       console.error(error);
@@ -60,6 +70,8 @@ const StaffsCard = ({ data, userData }) => {
 
   return (
     <>
+      <ToastContainer />
+
       <div className='staff-card'>
         <div className='card-body-1 d-flex-col gap-8'>
           <p className='product-category'>

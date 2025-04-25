@@ -24,33 +24,39 @@ const SideBar = ({ setcurrentName, setopen, currentName }) => {
           Barcode Generator
         </div>
         <div className='sidebar-container-header'>
-          <button
-            onClick={() => setcurrentName("products")}
-            className={`${currentName == "products" && "selected-option"}`}
-          >
-            Products
-          </button>
-          <button
-            onClick={() => {
-              setcurrentName("addproducts");
-              setopen(true);
-            }}
-            className={`${currentName == "addproducts" && "selected-option"}`}
-          >
-            Add Product
-          </button>
-          <button
-            onClick={() => setcurrentName("analytics")}
-            className={`${currentName == "analytics" && "selected-option"}`}
-          >
-            Analytics
-          </button>
-          <button
-            onClick={() => setcurrentName("invoice")}
-            className={`${currentName == "invoice" && "selected-option"}`}
-          >
-            Invoice History
-          </button>
+          {role != "employee" && (
+            <>
+              <button
+                onClick={() => setcurrentName("products")}
+                className={`${currentName == "products" && "selected-option"}`}
+              >
+                Products
+              </button>
+              <button
+                onClick={() => {
+                  setcurrentName("addproducts");
+                  setopen(true);
+                }}
+                className={`${
+                  currentName == "addproducts" && "selected-option"
+                }`}
+              >
+                Add Product
+              </button>
+              <button
+                onClick={() => setcurrentName("analytics")}
+                className={`${currentName == "analytics" && "selected-option"}`}
+              >
+                Analytics
+              </button>
+              <button
+                onClick={() => setcurrentName("invoice")}
+                className={`${currentName == "invoice" && "selected-option"}`}
+              >
+                Invoice History
+              </button>
+            </>
+          )}
 
           {role == "manager" && (
             <button

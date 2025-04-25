@@ -48,7 +48,7 @@ const AttendenceStatus = () => {
   return (
     <div className='w-100' style={{ overflowX: "hidden" }}>
       <div>
-        <Box>
+        {/* <Box>
           <Tabs
             value={value}
             onChange={handleChange}
@@ -57,7 +57,7 @@ const AttendenceStatus = () => {
             <Tab value='present' label='Present' wrapped />
             <Tab value='absent' label='Absent' />
           </Tabs>
-        </Box>
+        </Box> */}
         {isLoading && <Loader open={true} />}
 
         <div
@@ -66,11 +66,15 @@ const AttendenceStatus = () => {
             height: "90vh",
             padding: "40px",
           }}
-          className='w-100'
+          className='d-flex-wrap gap-16 w-100'
         >
           {staffsData?.length > 0 ? (
             staffsData?.map((val, key) => (
-              <AttendenceStatusCard data={val?.employee} status={value} />
+              <AttendenceStatusCard
+                data={val?.employee}
+                status={value}
+                date={val?.data}
+              />
             ))
           ) : (
             <p className='d-flex-full w-100'>No Data available</p>

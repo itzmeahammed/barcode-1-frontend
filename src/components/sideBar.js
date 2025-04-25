@@ -73,7 +73,7 @@ const SideBar = ({ setcurrentName, setopen, currentName }) => {
                   currentName == "attendenceStatus" && "selected-option"
                 }`}
               >
-                Attendence Status{" "}
+                Attendence Status
               </button>
             </>
           )}

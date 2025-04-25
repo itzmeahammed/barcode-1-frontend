@@ -10,6 +10,7 @@ import InvoiceHIstory from "./invoiceHIstory";
 import AttendanceCard from "./attendenceCard";
 import ShowTasksStaffs from "./showTasksStaffs";
 import Staffs from "./staffs";
+import AttendenceStatus from "./attendenceStatus";
 
 const Dashboard = () => {
   const [currentName, setcurrentName] = useState("products");
@@ -47,11 +48,12 @@ const Dashboard = () => {
         <ShowTasksStaffs />
       ) : currentName == "staffs" ? (
         <Staffs />
+      ) : currentName == "attendenceStatus" ? (
+        <AttendenceStatus />
       ) : (
         <InvoiceHIstory />
       )}
     </div>
   );
 };
-
 export default Dashboard;

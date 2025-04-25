@@ -59,12 +59,23 @@ const SideBar = ({ setcurrentName, setopen, currentName }) => {
           )}
 
           {role == "manager" && (
-            <button
-              onClick={() => setcurrentName("staffs")}
-              className={`${currentName == "staffs" && "selected-option"}`}
-            >
-              Staffs List
-            </button>
+            <>
+              <button
+                onClick={() => setcurrentName("staffs")}
+                className={`${currentName == "staffs" && "selected-option"}`}
+              >
+                Staffs List
+              </button>
+
+              <button
+                onClick={() => setcurrentName("attendenceStatus")}
+                className={`${
+                  currentName == "attendenceStatus" && "selected-option"
+                }`}
+              >
+                Attendence Status{" "}
+              </button>
+            </>
           )}
           {role == "employee" && (
             <>
